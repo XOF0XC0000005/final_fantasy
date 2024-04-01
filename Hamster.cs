@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace final_fantasy
 {
-    internal class Program
+    internal class Hamster : Pet
     {
-        static void Main(string[] args)
+        public Hamster(string name, string type, DateTime dateOfBirth, List<string> command) : base(name, type, dateOfBirth, command)
         {
-            var registry = new AnimalRegistry();
-            registry.Open();
-
-            Console.ReadLine();
         }
     }
 }

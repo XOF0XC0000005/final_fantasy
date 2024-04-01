@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace final_fantasy
 {
-    internal class Program
+    internal class Horse : PackAnimal
     {
-        static void Main(string[] args)
+        public Horse(string name, string type, DateTime dateOfBirth, List<string> command) : base(name, type, dateOfBirth, command)
         {
-            var registry = new AnimalRegistry();
-            registry.Open();
-
-            Console.ReadLine();
         }
     }
 }

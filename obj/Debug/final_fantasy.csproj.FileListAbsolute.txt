@@ -1,0 +1,7 @@
+C:\projects\c#_projects\final_fantasy\final_fantasy\bin\Debug\final_fantasy.exe.config
+C:\projects\c#_projects\final_fantasy\final_fantasy\bin\Debug\final_fantasy.exe
+C:\projects\c#_projects\final_fantasy\final_fantasy\bin\Debug\final_fantasy.pdb
+C:\projects\c#_projects\final_fantasy\final_fantasy\obj\Debug\final_fantasy.csproj.AssemblyReference.cache
+C:\projects\c#_projects\final_fantasy\final_fantasy\obj\Debug\final_fantasy.csproj.CoreCompileInputs.cache
+C:\projects\c#_projects\final_fantasy\final_fantasy\obj\Debug\final_fantasy.exe
+C:\projects\c#_projects\final_fantasy\final_fantasy\obj\Debug\final_fantasy.pdb
