@@ -156,12 +156,22 @@ namespace final_fantasy
         private void ShowAllAnimalsByDate()
         {
             Console.Clear();
-            Console.Write("Введите дату рождения по которой будут искаться животные: ");
+            Console.Write("Введите дату рождения по которой будут искаться животные в формате mm.dd.yyyy: ");
             string userInput = Console.ReadLine();
 
             foreach (var animal in animals)
             {
-                if (DateTime.Equals(animal.DateOfBirth, DateTime.ParseExact(userInput, "MM.dd.yyyy", null)))Console.WriteLine(animal.Name + " " + animal.Type + " " + animal.DateOfBirth);
+                try
+                {
+                    if (DateTime.Equals(animal.DateOfBirth, DateTime.ParseExact(userInput, "MM.dd.yyyy", null))) Console.WriteLine(animal.Name + " " + animal.Type + " " + animal.DateOfBirth);
+                }
+                catch (FormatException e) 
+                { 
+                    Console.WriteLine("Неверный формат даты!");
+                    Console.WriteLine("Нажмите любую клавишу, чтобы продолжить");
+                    Console.ReadLine();
+                    return;
+                }
             }
 
             Console.WriteLine("Нажмите, чтобы продолжить");
@@ -178,11 +188,25 @@ namespace final_fantasy
 
         private void AddCorrectAnimal(string type)
         {
+            DateTime correctDate = DateTime.Now;
+
             Console.Clear();
             Console.Write("Введите кличку: ");
             string name = Console.ReadLine();
             Console.Write("Введите дату рождения в формате mm.dd.yyyy: ");
             string dateOfBirth = Console.ReadLine();
+
+            try
+            {
+                correctDate = DateTime.ParseExact(dateOfBirth, "MM.dd.yyyy", null);
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("Неверный формат даты!");
+                Console.WriteLine("Нажмите любую клавишу, чтобы продолжить");
+                Console.ReadLine();
+                return;
+            }
 
             string done = string.Empty;
             List<string> animalCommands = new List<string>();
@@ -197,13 +221,12 @@ namespace final_fantasy
                 if (!done.Equals("exit")) animalCommands.Add(done);
             }
 
-            if (type.Equals("Dog")) animals.Add(new Dog(name, type, DateTime.ParseExact(dateOfBirth, "MM.dd.yyyy", null), animalCommands));
-            else if(type.Equals("Cat")) animals.Add(new Cat(name, type, DateTime.ParseExact(dateOfBirth, "MM.dd.yyyy", null), animalCommands));
-            else if (type.Equals("Hamster")) animals.Add(new Hamster(name, type, DateTime.ParseExact(dateOfBirth, "MM.dd.yyyy", null), animalCommands));
-            else if (type.Equals("Horse")) animals.Add(new Horse(name, type, DateTime.ParseExact(dateOfBirth, "MM.dd.yyyy", null), animalCommands));
-            else if (type.Equals("Camel")) animals.Add(new Camel(name, type, DateTime.ParseExact(dateOfBirth, "MM.dd.yyyy", null), animalCommands));
-            else if (type.Equals("Donkey")) animals.Add(new Donkey(name, type, DateTime.ParseExact(dateOfBirth, "MM.dd.yyyy", null), animalCommands));
-
+                if (type.Equals("Dog")) animals.Add(new Dog(name, type, correctDate, animalCommands));
+                else if (type.Equals("Cat")) animals.Add(new Cat(name, type, correctDate, animalCommands));
+                else if (type.Equals("Hamster")) animals.Add(new Hamster(name, type, correctDate, animalCommands));
+                else if (type.Equals("Horse")) animals.Add(new Horse(name, type, correctDate, animalCommands));
+                else if (type.Equals("Camel")) animals.Add(new Camel(name, type, correctDate, animalCommands));
+                else if (type.Equals("Donkey")) animals.Add(new Donkey(name, type, correctDate, animalCommands));
             Console.Clear();
             Console.WriteLine("Животное добавлено!");
         }
