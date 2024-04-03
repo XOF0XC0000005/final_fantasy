@@ -9,10 +9,7 @@ namespace final_fantasy
         public List<Animal> animals = new List<Animal>();
         public Counter Counter { get; }
 
-        public AnimalRegistry(Counter counter) 
-        {
-            Counter = counter;
-        }
+        public AnimalRegistry(Counter counter) => Counter = counter;
 
         public void Open()
         {
