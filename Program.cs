@@ -11,8 +11,6 @@ namespace final_fantasy
                 var registry = new AnimalRegistry(counter);
                 registry.Open();
             }
-
-            Console.ReadLine();
         }
     }
 }
