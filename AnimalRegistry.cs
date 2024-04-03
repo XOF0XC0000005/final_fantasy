@@ -220,12 +220,28 @@ namespace final_fantasy
                 if (!done.Equals("exit")) animalCommands.Add(done);
             }
 
-                if (type.Equals("Dog")) animals.Add(new Dog(name, type, correctDate, animalCommands));
-                else if (type.Equals("Cat")) animals.Add(new Cat(name, type, correctDate, animalCommands));
-                else if (type.Equals("Hamster")) animals.Add(new Hamster(name, type, correctDate, animalCommands));
-                else if (type.Equals("Horse")) animals.Add(new Horse(name, type, correctDate, animalCommands));
-                else if (type.Equals("Camel")) animals.Add(new Camel(name, type, correctDate, animalCommands));
-                else if (type.Equals("Donkey")) animals.Add(new Donkey(name, type, correctDate, animalCommands));
+                switch (type)
+                {
+                    case "Dog":
+                        animals.Add(new Dog(name, type, correctDate, animalCommands));
+                        break;
+                    case "Cat":
+                        animals.Add(new Cat(name, type, correctDate, animalCommands));
+                        break;
+                    case "Hamster":
+                        animals.Add(new Hamster(name, type, correctDate, animalCommands));
+                        break;
+                    case "Horse":
+                        animals.Add(new Horse(name, type, correctDate, animalCommands));
+                        break;
+                    case "Camel":
+                        animals.Add(new Camel(name, type, correctDate, animalCommands));
+                        break;
+                    case "Donkey":
+                        animals.Add(new Donkey(name, type, correctDate, animalCommands));
+                        break;
+                }
+
             Console.Clear();
             Counter.Add(ref AnimalCounter);
             Console.WriteLine("Животное добавлено!");
