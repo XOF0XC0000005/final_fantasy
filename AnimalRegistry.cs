@@ -6,7 +6,7 @@ namespace final_fantasy
     internal class AnimalRegistry
     {
         static private int AnimalCounter = 0;
-        public List<Animal> animals = new List<Animal>();
+        private List<Animal> animals = new List<Animal>();
         public Counter Counter { get; }
 
         public AnimalRegistry(Counter counter) => Counter = counter;
@@ -130,18 +130,18 @@ namespace final_fantasy
                     }
 
                     Console.Write("\nХотите добавить новые команды? Y/любая клавиша:");
-                    userInput = Console.ReadLine();
+                    userInput = Console.ReadLine().ToLower();
 
                     string done = string.Empty;
 
-                    if (userInput.Equals("Y"))
+                    if (userInput.Equals("y"))
                     {
                         Console.WriteLine("Вводите команды по одной, если вы захотите закончить ввод комманд, введите exit");
 
                         while (!done.Equals("exit"))
                         {
                             Console.Write("\nВведите команду, которые знает животное: ");
-                            done = Console.ReadLine();
+                            done = Console.ReadLine().ToLower();
 
                             if (!done.Equals("exit")) currentAnimal.Commands.Add(done);
                         }
