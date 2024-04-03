@@ -9,7 +9,14 @@ namespace final_fantasy
 {
     internal class AnimalRegistry
     {
+        static private int AnimalCounter = 0;
         public List<Animal> animals = new List<Animal>();
+        public Counter Counter { get; }
+
+        public AnimalRegistry(Counter counter) 
+        {
+            Counter = counter;
+        }
 
         public void Open()
         {
@@ -133,7 +140,6 @@ namespace final_fantasy
                     userInput = Console.ReadLine();
 
                     string done = string.Empty;
-                    List<string> animalCommands = new List<string>();
 
                     if (userInput.Equals("Y"))
                     {
@@ -165,7 +171,7 @@ namespace final_fantasy
                 {
                     if (DateTime.Equals(animal.DateOfBirth, DateTime.ParseExact(userInput, "MM.dd.yyyy", null))) Console.WriteLine(animal.Name + " " + animal.Type + " " + animal.DateOfBirth);
                 }
-                catch (FormatException e) 
+                catch (FormatException) 
                 { 
                     Console.WriteLine("Неверный формат даты!");
                     Console.WriteLine("Нажмите любую клавишу, чтобы продолжить");
@@ -181,14 +187,14 @@ namespace final_fantasy
         private void ShowAnimalCounter()
         {
             Console.Clear();
-            Console.Write($"В реестре животных: {animals.Count}");
+            Console.Write($"В реестре животных: {AnimalCounter}");
             Console.Write("\n Нажмите, чтобы продолжить");
             Console.ReadLine();
         }
 
         private void AddCorrectAnimal(string type)
         {
-            DateTime correctDate = DateTime.Now;
+            DateTime correctDate;
 
             Console.Clear();
             Console.Write("Введите кличку: ");
@@ -200,7 +206,7 @@ namespace final_fantasy
             {
                 correctDate = DateTime.ParseExact(dateOfBirth, "MM.dd.yyyy", null);
             }
-            catch (FormatException e)
+            catch (FormatException)
             {
                 Console.WriteLine("Неверный формат даты!");
                 Console.WriteLine("Нажмите любую клавишу, чтобы продолжить");
@@ -228,6 +234,7 @@ namespace final_fantasy
                 else if (type.Equals("Camel")) animals.Add(new Camel(name, type, correctDate, animalCommands));
                 else if (type.Equals("Donkey")) animals.Add(new Donkey(name, type, correctDate, animalCommands));
             Console.Clear();
+            Counter.Add(ref AnimalCounter);
             Console.WriteLine("Животное добавлено!");
         }
     }

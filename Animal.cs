@@ -8,9 +8,9 @@ namespace final_fantasy
 {
     internal class Animal
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public string Name { get; }
+        public string Type { get; }
+        public DateTime DateOfBirth { get; }
         public List<string> Commands { get; set; }
 
         public Animal(string name, string type, DateTime dateOfBirth, List<string> commands)

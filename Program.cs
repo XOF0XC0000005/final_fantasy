@@ -10,8 +10,11 @@ namespace final_fantasy
     {
         static void Main(string[] args)
         {
-            var registry = new AnimalRegistry();
-            registry.Open();
+            using(Counter counter = new Counter())
+            {
+                var registry = new AnimalRegistry(counter);
+                registry.Open();
+            }
 
             Console.ReadLine();
         }
