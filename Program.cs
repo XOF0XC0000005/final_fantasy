@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace final_fantasy
+﻿namespace final_fantasy
 {
     internal class Program
     {
