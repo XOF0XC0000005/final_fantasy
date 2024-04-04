@@ -54,7 +54,7 @@ namespace final_fantasy
                         isOpen = false;
                         break;
                 }
-            }      
+            }
         }
 
         private void AddAnimal()
@@ -80,7 +80,7 @@ namespace final_fantasy
 
             userInput = Console.ReadLine();
 
-            switch(userInput)
+            switch (userInput)
             {
                 case AddDogCommand:
                     AddCorrectAnimal("Dog");
@@ -149,7 +149,7 @@ namespace final_fantasy
                 }
             }
             else Console.WriteLine("Введите корректный индекс");
-            
+
         }
 
         private void ShowAllAnimalsByDate()
@@ -164,8 +164,8 @@ namespace final_fantasy
                 {
                     if (DateTime.Equals(animal.DateOfBirth, DateTime.ParseExact(userInput, "MM.dd.yyyy", null))) Console.WriteLine(animal.Name + " " + animal.Type + " " + animal.DateOfBirth);
                 }
-                catch (FormatException) 
-                { 
+                catch (FormatException)
+                {
                     Console.WriteLine("Неверный формат даты!");
                     Console.WriteLine("Нажмите любую клавишу, чтобы продолжить");
                     Console.ReadLine();
@@ -220,27 +220,27 @@ namespace final_fantasy
                 if (!done.Equals("exit")) animalCommands.Add(done);
             }
 
-                switch (type)
-                {
-                    case "Dog":
-                        animals.Add(new Dog(name, type, correctDate, animalCommands));
-                        break;
-                    case "Cat":
-                        animals.Add(new Cat(name, type, correctDate, animalCommands));
-                        break;
-                    case "Hamster":
-                        animals.Add(new Hamster(name, type, correctDate, animalCommands));
-                        break;
-                    case "Horse":
-                        animals.Add(new Horse(name, type, correctDate, animalCommands));
-                        break;
-                    case "Camel":
-                        animals.Add(new Camel(name, type, correctDate, animalCommands));
-                        break;
-                    case "Donkey":
-                        animals.Add(new Donkey(name, type, correctDate, animalCommands));
-                        break;
-                }
+            switch (type)
+            {
+                case "Dog":
+                    animals.Add(new Dog(name, type, correctDate, animalCommands));
+                    break;
+                case "Cat":
+                    animals.Add(new Cat(name, type, correctDate, animalCommands));
+                    break;
+                case "Hamster":
+                    animals.Add(new Hamster(name, type, correctDate, animalCommands));
+                    break;
+                case "Horse":
+                    animals.Add(new Horse(name, type, correctDate, animalCommands));
+                    break;
+                case "Camel":
+                    animals.Add(new Camel(name, type, correctDate, animalCommands));
+                    break;
+                case "Donkey":
+                    animals.Add(new Donkey(name, type, correctDate, animalCommands));
+                    break;
+            }
 
             Console.Clear();
             Counter.Add(ref AnimalCounter);

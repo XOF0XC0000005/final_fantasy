@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            using(Counter counter = new Counter())
+            using (Counter counter = new Counter())
             {
                 var registry = new AnimalRegistry(counter);
                 registry.Open();

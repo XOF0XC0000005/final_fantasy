@@ -5,6 +5,6 @@ namespace final_fantasy
 {
     internal class PackAnimal : Animal
     {
-        public PackAnimal(string name, string type, DateTime dateOfBirth, List<string> command) :base(name, type, dateOfBirth, command) { }
+        public PackAnimal(string name, string type, DateTime dateOfBirth, List<string> command) : base(name, type, dateOfBirth, command) { }
     }
 }
