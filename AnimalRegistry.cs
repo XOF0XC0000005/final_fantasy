@@ -181,7 +181,7 @@ namespace final_fantasy
         {
             Console.Clear();
             Console.Write($"В реестре животных: {AnimalCounter}");
-            Console.Write("\n Нажмите, чтобы продолжить");
+            Console.Write("\nНажмите, чтобы продолжить");
             Console.ReadLine();
         }
 
